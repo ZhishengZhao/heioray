@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+        }
+        .rainContainer{
+            width: 100%;
+            height: 500px;
+            background: #000;
+
+            /*margin-top: 300px;*/
+            /*margin-left: 200px;*/
+            /*border:5px solid red;*/
+        }
+        .rainContainer div{
+            position: absolute;
+            left: 0;
+            top: -200px;
+
+            background: #fff;
+            border-radius: 50%;
+
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rainContainer">
+    </div>
+    <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+    <!-- <script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script> -->
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            // var data = {'success':true,'result':[1,2,3,4,5,1,2,3,4,5,4,5,2,3,4,5,1,2,3,4,5,4,5,2,3,4,5,1,2,3,4,5,4,5,2,3,4,5,1,2,3,4,5,4,5]},//mock rain data, include moneyValue, message .etc
+            //     res = data.result,
+            //     divCount = res.length,
+
+
+
+            var $con = $('.rainContainer'),
+                containerWidth = $con.width();
+
+            // var $divObj = null;
+            var rain = {
+                init : function(initCount){
+                    var that = this;
+                    
+                    //初始加载
+                    that._genaratePacket(initCount);                
+
+                    $divObj = $con.find('div');
+
+                    that._resetPosition($divObj);
+                    that._rainFall($divObj);
+                },
+                _getRandom : function(mode){
+                    if(mode === 'directionX'){
+                        return Math.random()*containerWidth;
+                    }else if(mode === 'directionY'){
+                        return Math.random()*200;
+                    }else if(mode === 'fallDuration'){
+                        return Math.random()*5000 + 1000;
+                    }else if(mode === 'rainDropSize'){
+                        return Math.random()*30 + 30;
+                    }else if(mode === 'photo'){
+                        return Math.floor(Math.random()*9 + 1);
+                    }
+                },
+                _genaratePacket : function(count){
+                    for(var i =0; i < count; i++){
+                        var divHtml = '<div data-value = "'+rain._getRandom('directionX')+'" data-options = "'+rain._getRandom('directionY')+'"></div>',
+                            size = rain._getRandom('rainDropSize'),
+                            finalImage = 'img/'+rain._getRandom('photo')+'.jpg';
+
+                        $con.append(divHtml);
+                        $con.find('div').last().css({'width': size,'height': size, 'overflow' : 'hidden', 'background' : 'url('+finalImage+') 0 center no-repeat', 'background-size' : 'cover'});
+                        // $con.find('div').last().find('img').css({'width': size,'height': size});
+                    }
+                    return($con.find('div').last());
+                },
+                _resetPosition: function($divObj){
+                    $divObj.each(function(index,e){
+                        var positionX = rain._getRandom('directionX'),
+                            positionY = rain._getRandom('directionY');
+
+                        $divObj.eq(index).css({'left':positionX,'top':-positionY});
+                    });
+                },
+                _rainFall : function($divObj){
+                    $divObj.each(function(index,e){
+                        var $obj = $divObj.eq(index);
+                        var finallOffsetTop = $obj.offset().top + 720 + 'px',
+                            duration = rain._getRandom('fallDuration');
+
+                        $obj.animate({'top' : finallOffsetTop, 'opacity' : 0}, duration, function(){
+                            //回调删除老元素，并添加新的节点
+                            this.remove();
+                            var newOne = rain._genaratePacket(1);
+                            rain._resetPosition(newOne);
+                            rain._rainFall(newOne);
+                        });
+                    });
+                }
+                // _genarateOne: function(){
+                //     // rain._readData();
+                //     var divHtml = '<div data-value = "'+rain._getRandom('directionX')+'" data-options = "'+rain._getRandom('directionY')+'"></div>',
+                //         size = rain._getRandom('rainDropSize'),
+                //         finalImage = 'img/'+rain._getRandom('photo')+'.jpg';
+
+                //     $con.append(divHtml);
+                //     $con.find('div').last().css({'width': size,'height': size, 'overflow' : 'hidden', 'background' : 'url('+finalImage+') 0 center no-repeat', 'background-size' : 'cover'});
+                //     // $con.find('div').last().find('img').css({'width': size,'height': size});
+                //     return($con.find('div').last());
+                // },
+                // _readData: function(len){
+                //     var objHtml = '';
+                //     for(var i=0; i < len; i++){
+                //         var j = i%divCount;
+                //         objHtml += '<div data-value = "'+res[j]+'" data-options = "'+res[j]+'"></div>';
+                //     }
+                //     return objHtml;
+                // }
+            };
+            rain.init(20);
+
+            $('.rainContainer').on('click','div',function(){
+                var that = $(this),
+                    pacVal = that[0].attributes['data-value'].value;
+                    
+                if(pacVal >= 0){
+                    console.log(that);
+                    console.log($('.rainContainer').find('div').eq(5));
+                    that.stop().animate({'width' : '160px', 'height' : '160px', 'opacity': '1'},2000,function(){
+                        that.css({'z-index' : '99'});
+
+                        setTimeout(function(){
+                            that.remove();
+                        },1500);
+                    });
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>

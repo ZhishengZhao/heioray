@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .packagerContainer{
+            width: 100%;
+            height: 8000px;
+            border: 3px solid #000;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+
+            background: #000;
+        }
+        .centerCon{
+            width: 324px;
+            height: 330px;
+            margin-top: 165px;
+            border: 3px solid red;
+            background: #000;
+        }
+        .pac{
+            background: red;
+            position: absolute;
+            left: 0;
+            top: -60px;
+            z-index: 10;
+            background: #fff;
+            border-radius: 50%;
+            /*background: url(cashgift_star.png) 0 center no-repeat;*/
+            /*background-size: cover;*/
+            
+        }
+        .bigpac{
+            width: 60px;
+            height: 60px;
+
+            animation: rain 1.7s linear infinite running;
+            -webkit-animation: rain 1.7s linear infinite running;
+            -moz-animation: rain 1.7s linear infinite running;
+            -o-animation: rain 1.7s linear infinite running;
+        }
+        .middlepac{
+            width: 40px;
+            height: 40px;
+
+            animation: rain 2.3s linear infinite running;
+            -webkit-animation: rain 2.3s linear infinite running;
+            -moz-animation: rain 2.3s linear infinite running;
+            -o-animation: rain 2.3s linear infinite running;
+        }
+        .smallpac{
+            width: 20px;
+            height: 20px;
+
+            animation: rain 2.6s linear infinite running;
+            -webkit-animation: rain 2.6s linear infinite running;
+            -moz-animation: rain 2.6s linear infinite running;
+            -o-animation: rain 2.6s linear infinite running;
+        }
+
+        .littlepac{
+            width: 10px;
+            height: 10px;
+
+            animation: rain 3s linear infinite running;
+            -webkit-animation: rain 3s linear infinite running;
+            -moz-animation: rain 3s linear infinite running;
+            -o-animation: rain 3s linear infinite running;
+        }
+
+        @keyframes rain{
+            0%{opacity: 0.5;transform:translate(0px, 0px)}
+            25%{opacity: 1;transform:translate(0px, 100px)}
+            50%{opacity: 0.66;transform:translate(0px, 200px)}
+            75%{opacity: 0.33;transform:translate(0px, 300px)}
+            100%{opacity: 0;transform:translate(0px, 400px)}            
+        }
+        @-webkit-keyframes rain{
+            0%{opacity: 0.5;-webkit-transform:translate(0px, 0px)}
+            25%{opacity: 1;-webkit-transform:translate(0px, 100px)}
+            50%{opacity: 0.66;-webkit-transform:translate(0px, 200px)}
+            75%{opacity: 0.33;-webkit-transform:translate(0px, 300px)}
+            100%{opacity: 0;-webkit-transform:translate(0px, 400px)}
+        }
+    </style>
+</head>
+<body>
+    <div class="packagerContainer">
+        <!-- <div class="centerCon"> -->
+            <div data-value="a" class="pac bigpac"></div>
+            <div data-value="b" class="pac bigpac"></div>
+            <div data-value="c" class="pac bigpac"></div>
+            <div data-value="d" class="pac bigpac"></div>
+            <div data-value="c" class="pac bigpac"></div>
+            <div data-value="d" class="pac bigpac"></div>
+            <div data-value="c" class="pac bigpac"></div>
+            <div data-value="d" class="pac bigpac"></div>
+
+            <div data-value="e" class="pac middlepac"></div>
+            <div data-value="f" class="pac middlepac"></div>
+            <div data-value="g" class="pac middlepac"></div>
+            <div data-value="h" class="pac middlepac"></div>
+            <div data-value="i" class="pac middlepac"></div>
+            <div data-value="j" class="pac middlepac"></div>
+            <div data-value="g" class="pac middlepac"></div>
+            <div data-value="h" class="pac middlepac"></div>
+            <div data-value="i" class="pac middlepac"></div>
+            <div data-value="j" class="pac middlepac"></div>
+            <div data-value="g" class="pac middlepac"></div>
+            <div data-value="h" class="pac middlepac"></div>
+            <div data-value="i" class="pac middlepac"></div>
+            <div data-value="j" class="pac middlepac"></div>
+            <div data-value="g" class="pac middlepac"></div>
+            <div data-value="h" class="pac middlepac"></div>
+            <div data-value="i" class="pac middlepac"></div>
+            <div data-value="j" class="pac middlepac"></div>
+
+            <div data-value="k" class="pac smallpac"></div>
+            <div data-value="l" class="pac smallpac"></div>
+            <div data-value="m" class="pac smallpac"></div>
+            <div data-value="n" class="pac smallpac"></div>
+            <div data-value="o" class="pac smallpac"></div>
+            <div data-value="p" class="pac smallpac"></div>
+            <div data-value="q" class="pac smallpac"></div>
+            <div data-value="r" class="pac smallpac"></div>
+            <div data-value="o" class="pac smallpac"></div>
+            <div data-value="p" class="pac smallpac"></div>
+            <div data-value="q" class="pac smallpac"></div>
+            <div data-value="r" class="pac smallpac"></div>
+            <div data-value="o" class="pac smallpac"></div>
+            <div data-value="p" class="pac smallpac"></div>
+            <div data-value="q" class="pac smallpac"></div>
+            <div data-value="r" class="pac smallpac"></div>
+            <div data-value="o" class="pac smallpac"></div>
+            <div data-value="p" class="pac smallpac"></div>
+            <div data-value="q" class="pac smallpac"></div>
+            <div data-value="r" class="pac smallpac"></div>
+            <div data-value="o" class="pac smallpac"></div>
+            <div data-value="p" class="pac smallpac"></div>
+            <div data-value="q" class="pac smallpac"></div>
+            <div data-value="r" class="pac smallpac"></div>
+            
+            <div data-value="s" class="pac littlepac"></div>
+            <div data-value="t" class="pac littlepac"></div>
+            <div data-value="u" class="pac littlepac"></div>
+            <div data-value="v" class="pac littlepac"></div>
+            <div data-value="w" class="pac littlepac"></div>
+            <div data-value="x" class="pac littlepac"></div>
+            <div data-value="y" class="pac littlepac"></div>
+            <div data-value="z" class="pac littlepac"></div>
+            <div data-value="s" class="pac littlepac"></div>
+            <div data-value="t" class="pac littlepac"></div>
+            <div data-value="u" class="pac littlepac"></div>
+            <div data-value="v" class="pac littlepac"></div>
+            <div data-value="w" class="pac littlepac"></div>
+            <div data-value="x" class="pac littlepac"></div>
+            <div data-value="y" class="pac littlepac"></div>
+            <div data-value="z" class="pac littlepac"></div>
+            <div data-value="s" class="pac littlepac"></div>
+            <div data-value="t" class="pac littlepac"></div>
+            <div data-value="u" class="pac littlepac"></div>
+            <div data-value="v" class="pac littlepac"></div>
+            <div data-value="w" class="pac littlepac"></div>
+            <div data-value="x" class="pac littlepac"></div>
+            <div data-value="y" class="pac littlepac"></div>
+            <div data-value="z" class="pac littlepac"></div>
+        <!-- </div> -->
+    </div>
+    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+    <script>
+        $(function(){
+            var $pacList = $('.pac'),
+                containerWidth = $('.packagerContainer').width(),
+                containerHeight = $('.packagerContainer').height();
+
+            var pacRain = {
+                init: function(){
+                    var that = this;
+                    // setPosition timer
+                    that.resetPosition();
+                    clearInterval(window.rainTimer);
+                    window.rainTimer = setInterval(function(){
+                        $pacList.each(function(index,e){
+                            var positionX = that.randomNum('x'),
+                                positionY = that.randomNum('y');
+
+                            $pacList.eq(index).css({'left':positionX,'top':positionY});
+                        });
+                    },3000);
+                    //animation 
+                    // $('.pac').stop().animate({'top':'550px'},3000,function(){
+                    //     $pacList.each(function(index,e){
+                    //         var positionX = that.randomNum('x'),
+                    //             positionY = that.randomNum('y');
+
+                    //         $pacList.eq(index).css({'left':positionX,'top':positionY});
+                    //     });
+                    //     that.init();
+                    // });
+
+                    // $pacList.each(function(index,e){
+                    //     var targetDiv = $pacList.eq(index),
+                    //         ntop = targetDiv.offset().top + 330;
+
+                    //     // targetDiv.stop().animate({});
+                    //     targetDiv.stop().animate({'top': ntop},3000,function(){
+                    //         var positionX = that.randomNum('x'),
+                    //             positionY = that.randomNum('y');
+
+                    //         targetDiv.css({'left':positionX,'top':positionY});
+                    //     });
+                    // });
+                    // that.init();
+                },
+                randomNum: function(mode){
+                    if(mode === 'x'){
+                        return Math.random()*containerWidth;
+                    }else{
+                        return Math.random()*containerHeight/2;
+                    }
+                },
+                resetPosition: function(){
+                    $pacList.each(function(index,e){
+                        var positionX = pacRain.randomNum('x'),
+                            positionY = pacRain.randomNum('y');
+
+                        $pacList.eq(index).css({'left':positionX,'top':positionY});
+                    });
+                }
+            };
+            pacRain.init();
+
+            $('.pac').on('click',function(){
+                var that = $(this);
+                var res = that[0].attributes['data-value'].value;
+                if(res === 'd'){
+                    alert('Congradulations!');
+                }
+                console.log(res);
+            });
+        });
+    </script>
+</body>
+</html>
